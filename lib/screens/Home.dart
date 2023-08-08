@@ -7,50 +7,27 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text("Custom Widget"),
         backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
       ),
-      backgroundColor: Colors.grey,
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          constraints: const BoxConstraints.expand(
-            width: 330,
-            height: 450
-          ),
-          decoration: const BoxDecoration(
-            boxShadow: [
-              BoxShadow()
-            ],
-            image: DecorationImage(
-                image: AssetImage("assets/image1.jpg"),
-                fit: BoxFit.cover,
+      body: ListView(
+        children: [
+          ListTile(
+            tileColor: Colors.black12,
+            shape: ContinuousRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              side: BorderSide(
+                width: 1.0,
+                color: Colors.blueAccent
+              )
             ),
-            borderRadius: BorderRadius.all(Radius.circular(10.0))
-          ),
-          child: const Stack(
-            children: [
-              Text("Editors Choice", style: TextStyle(color: Colors.white,
-              fontWeight: FontWeight.bold,fontSize: 18),),
-              Positioned(
-                top: 20.0,
-                child: Text("The art of Makin a Coffee", style: TextStyle(color: Colors.white,
-                    fontSize: 22),),
-              ),
-              Positioned(
-                right: 0,
-                bottom: 20,
-                child: Text("Learn to make perfect coffee", style: TextStyle(color: Colors.white,
-                    fontSize: 16),),
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Text("Coding with tae", style: TextStyle(color: Colors.white,
-                    fontSize: 16),),
-              ),
-            ],
-          ),
-        ),
+            leading: IconButton(icon: const Icon(Icons.mouse), color: Colors.cyan,onPressed: (){}),
+            title: const Text("Mouse", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+            subtitle: const Text("A4Tech Mouse"),
+            trailing: IconButton(icon: const Icon(Icons.add_shopping_cart),onPressed: (){}),
+          )
+        ],
       ),
     );
   }
